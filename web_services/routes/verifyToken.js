@@ -30,8 +30,11 @@ const verifyTokenAndAuthorization = (req,res,next) =>{
 }
 
 const verifyTokenAndAdmin = (req,res,next) =>{
+	
 	verifyToken(req,res,()=>{
+		
 		if(req.user.isAdmin){
+			console.log("admin inside")
 			next();
 		}else{
 			res.status(403).json({status:0,message:"You have not access"})
