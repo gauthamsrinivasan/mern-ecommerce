@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const authRoute = require("./routes/auth");
+const dashRoute = require("./routes/dashboard");
 const userRoute = require("./routes/user");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
@@ -27,6 +28,7 @@ app.use(cors());
 app.use(express.json());
 
 //Use routes
+app.use("/",dashRoute)
 app.use("/api/auth",authRoute);
 app.use("/api/users",userRoute);
 app.use("/api/products",productRoute);
